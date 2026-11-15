@@ -15,6 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 app.disable('x-powered-by');
+app.set('trust proxy', 1);
 app.use(express.json({ limit: '100kb' }));
 
 const fail = (res, status, code, message) => res.status(status).json({ error: { code, message } });
